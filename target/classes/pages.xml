@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<configuration>
+    <property>
+        <name>pages</name>
+        <list>
+            <value>"/about/"</value>
+            <value></value>
+        </list>
+    </property>
+</configuration>
