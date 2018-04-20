@@ -1,0 +1,13 @@
+
+m=   是卖家的ID
+qid 是时间戳
+node = xx←这是亚马逊搜索的浏览节点
+pf_rd_m = ATVPDKIKX0DER ←这是市场（美国）
+pf_rd_s = center-1？ ←这是源文件
+
+https://kindlepreneur.com/amazon-search-url-isbn-ref/
+&Field-Keyword=
+/S/?Url=Search-Alias
+/dp/B00IO3DMXM  ：ASIN Or 10-Digit ISBN     Amazon Standard Identification Number (ASIN)
+
+registry/wishlist/  心愿清单

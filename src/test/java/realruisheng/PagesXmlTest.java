@@ -7,6 +7,5 @@ import org.apache.commons.configuration.Configuration;
  */
 public class PagesXmlTest {
     public static void main(String[] args) {
-
     }
 }

@@ -2,6 +2,7 @@ package realruisheng.kpi;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -98,8 +99,24 @@ public class KPIPageIP extends Configured implements Tool {
     }
 
     public static void main(String[] args) throws Exception {
+        /*
         Configuration conf = new Configuration();
         ToolRunner.run(new KPIPageIP(), args);
+        */
+        Configuration conf = new Configuration();
+        if(args.length==2){
+            //
+            FileSystem hdfs=FileSystem. get(conf);
+            String outputPath = args[1];
+            Path findf= new Path(outputPath );
+            if(hdfs.exists(findf)){
+                hdfs.delete(findf);
+            }
+            ToolRunner.run(new KPIPageIP(), args);
+        }
+        else {
+            System.out.println("input two parameters: input file path , output file path");
+        }
     }
 }
 

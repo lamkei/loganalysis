@@ -1,0 +1,9 @@
+KPIBrowser：    客户端浏览器
+KPIHttpReferer：用户来源域名的统计
+KPIIP:          不用的
+KPIOneIP:       每一个IP的访问量，通过设置计数器计算出只出现一次的IP的数量（跳出数）和来访IP的数量（去重）
+KPIPageIP:      页面独立IP的访问量统计
+KPIPlatForm:    客户端的平台（PC端或手机端）
+KPIPV:          PV访问量
+KPIStatus:      状态码
+KPITime:        每小时的PV访问量

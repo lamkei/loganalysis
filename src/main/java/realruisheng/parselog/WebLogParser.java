@@ -14,17 +14,13 @@ import java.util.regex.Pattern;
  */
 public class WebLogParser {
 
-    Set<String> pages = new HashSet<String>();
+//    Set<String> pages = new HashSet<String>();
 
     public WebLogParser() {
+        /*
         pages.add("/about/");
-        pages.add("/black-ip-clustor/");
-        pages.add("/cassandra-clustor/");
-        pages.add("/finance-rhive-repurchase/");
-        pages.add("/hadoop-familiy-roadmap/");
-        pages.add("/hadoop-hive-intro/");
-        pages.add("/hadoop-zookeeper-intro/");
-        pages.add("/hadoop-mahout-roadmap/");
+        pages.add("/axis2/services/WebFilteringService/getCategoryByUrl");
+        */
     }
 
     public WebLog parse(String webLogString) {
@@ -45,18 +41,25 @@ public class WebLogParser {
         return webLog;
     }
 
+    /**
+     * 每行日志中有6个双引号。
+     * 如果没有6个则返回false，表示该行日志无效
+     * @param webLogString
+     * @return
+     */
     public boolean isValid(String webLogString) {
-        // TODO 还需要修改
         int doubleQuoteNum = webLogString.length() - webLogString.replace("\"", "").length();
         if (doubleQuoteNum != 6) {
             return false;
         }
+        /* 判断是否该网站的页面
         String requestPage = parseRequest(webLogString);
         if (pages.contains(requestPage)) {
             return true;
-        } else {
-            return true;
         }
+        */
+        return true;
+
     }
 
     public String parseRemoteAddr(String webLogString) {
@@ -64,17 +67,24 @@ public class WebLogParser {
         return remoteAddr;
     }
 
+    /**
+     * 在“-”后面的是remoteUser，“-”是历史原因导致还存在
+     * @param webLogString
+     * @return
+     */
     public String parseRemoteUser(String webLogString) {
-        String remoteUser = webLogString.split(" +")[1].trim();
+        String remoteUser = webLogString.split(" +")[2].trim();
         return remoteUser;
     }
 
     //TODO 了解SimpleDateFormat使用
-    //TODO "+0800]"需要修改
     public Date parseTimeLocal(String webLogString) {
+        /*
         int firstIndex = webLogString.indexOf("[");
         int lastIndex = webLogString.indexOf(" +0800]");
         String timeLocalStr = webLogString.substring(firstIndex + 1, lastIndex).trim();
+        */
+        String timeLocalStr = webLogString.split(" +")[3].trim().replace("[","");
         //System.out.println("timeLocalStr = " + timeLocalStr);
         SimpleDateFormat dateFormat = new SimpleDateFormat("d/MMM/yyyy:HH:mm:ss", Locale.ENGLISH);
         Date date = null;
@@ -147,10 +157,25 @@ public class WebLogParser {
 
     public static void main(String[] args) {
         WebLogParser webLogParser = new WebLogParser();
-        String webLogString = "127.0.0.1 - - [30/May/2013:17:38:20 +0800] \"GET / HTTP/1.1\" 200 612 \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36\"";
-        boolean valid1 = webLogParser.isValid(webLogString);
-        boolean valid2 = webLogParser.isValid("fdsfsafas");
-        //System.out.println("valid1 = " + valid1);
-        //System.out.println("valid2 = " + valid2);
+        String webLogString = "198.91.166.34 - - [25/Oct/2017:23:24:41 +0000] \"GET /axis2/services/WebFilteringService/getCategoryByUrl?app=chrome_webfilter&ver=0.19.7.1&url=https%3A//play.google.com/store/apps/details%3Fid%3Dcom.google.android.youtube%26hl%3Den&cat=computer-information HTTP/1.1\" 200 133 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36\"";
+        String remoteAddr = webLogParser.parseRemoteAddr(webLogString);     //IP地址
+        String remoteUser = webLogParser.parseRemoteUser(webLogString);     //用户
+        Date timeLocal = webLogParser.parseTimeLocal(webLogString);        //时间
+        String request = webLogParser.parseRequest(webLogString);        //请求的页面
+        int status = webLogParser.parseStatus(webLogString);            //状态码
+        int bodyBytesSent = webLogParser.parseBodyBytesSent(webLogString);     //返回字节数
+        String httpReferer = webLogParser.parseHttpReferer(webLogString);    //来源域名
+        String httpUserAgent = webLogParser.parseHttpUserAgent(webLogString);  //客户端用户设备
+        boolean valid = webLogParser.isValid(webLogString);  //该条日志记录是否有效
+
+        System.out.println("remoteAddr = " + remoteAddr);
+        System.out.println("remoteUser = " + remoteUser);
+        System.out.println("request = " + request);
+        System.out.println("status = " + status);
+        System.out.println("bodyBytesSent = " + bodyBytesSent);
+        System.out.println("httpReferer = " + httpReferer);
+        System.out.println("httpUserAgent = " + httpUserAgent);
+        System.out.println("valid = " + valid);
+
     }
 }

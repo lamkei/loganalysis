@@ -11,29 +11,36 @@ public class KPIJob {
     public static final String HDFS = "hdfs://127.0.0.1:9000";
 
     public static void main(String[] args) throws Exception {
-        String outputBrowser = "/loganalysis/Browser";
-        String outputCleaner = "/loganalysis/Cleaner";
-        String outputHttpReferer = "/loganalysis/HttpReferer";
-        String outputIP = "/loganalysis/IP";
-        String outputOneIP = "/loganalysis/OneIP";
-        String outputPageIP = "/loganalysis/PageIP";
-        String outputPlatForm = "/loganalysis/PlatForm";
-        String outputPV = "/loganalysis/PV";
-        String outputStatus = "/loganalysis/Status";
-        String outputTime = "/loganalysis/Time";
-        String inputLog = "/loganalysis/inputLog/";
+        //String outputAggregateURLParameters = "/output/loganalysis/AggregateURLParameters";
+        String outputBrowser = "/output/loganalysis/Browser";
+        String outputGeoIP = "/output/loganalysis/GeoIP";
+        String outputGooglePlay = "/output/loganalysis/GooglePlay";
+        String outputGooglePlayAmazonNum = "/output/loganalysis/GooglePlayAmazonNum";
+        String outputHttpReferer = "/output/loganalysis/HttpReferer";
+        String outputIP = "/output/loganalysis/IP";
+        String outputOneIP = "/output/loganalysis/OneIP";
+        String outputPageIP = "/output/loganalysis/PageIP";
+        String outputPlatForm = "/output/loganalysis/PlatForm";
+        String outputPV = "/output/loganalysis/PV";
+        String outputStatus = "/output/loganalysis/Status";
+        String outputTime = "/output/loganalysis/Time";
+        String outputCleaner = "/output/loganalysis/Cleaner";
+        String inputLog = "/input/";
 
+        //AggregateURLParameters.main(new String[]{inputLog,outputAggregateURLParameters});
         KPIBrowser.main(new String[]{inputLog,outputBrowser});
-        KPICleaner.main(new String[]{inputLog,outputCleaner});
-        KPIHttpReferer.main(new String[]{inputLog,outputHttpReferer});
+        KPIGeoIP.main(new String[]{inputLog,outputGeoIP});
+        KPIGooglePlay.main(new String[]{inputLog,outputGooglePlay});
+        KPIGooglePlayAmazonNum.main(new String[]{inputLog,outputGooglePlayAmazonNum});
+        //KPIHttpReferer.main(new String[]{inputLog,outputHttpReferer});
         KPIIP.main(new String[]{inputLog,outputIP});
-        KPIOneIP.main(new String[]{inputLog,outputOneIP});
-        KPIPageIP.main(new String[]{inputLog,outputPageIP});
+        //KPIOneIP.main(new String[]{inputLog,outputOneIP});
+        //KPIPageIP.main(new String[]{inputLog,outputPageIP});
         KPIPlatForm.main(new String[]{inputLog,outputPlatForm});
-        KPIPV.main(new String[]{inputLog,outputPV});
+        //KPIPV.main(new String[]{inputLog,outputPV});
         KPIStatus.main(new String[]{inputLog,outputStatus});
         KPITime.main(new String[]{inputLog,outputTime});
 
-
+        //KPICleaner.main(new String[]{inputLog,outputCleaner});
     }
 }

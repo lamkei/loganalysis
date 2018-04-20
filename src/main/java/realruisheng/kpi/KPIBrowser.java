@@ -103,17 +103,15 @@ public class KPIBrowser extends Configured implements Tool {
     }
 
     public static void main(String[] args) throws Exception {
-
         /*
         Configuration conf = new Configuration();
         ToolRunner.run(new KPIBrowser(), args);
          */
-
         Configuration conf = new Configuration();
         if(args.length==2){
             //
             FileSystem hdfs=FileSystem. get(conf);
-            String outputPath = args[2];
+            String outputPath = args[1];
             Path findf= new Path(outputPath );
             if(hdfs.exists(findf)){
                 hdfs.delete(findf);
@@ -123,8 +121,5 @@ public class KPIBrowser extends Configured implements Tool {
         else {
             System.out.println("input two parameters: input file path , output file path");
         }
-
-
     }
-
 }

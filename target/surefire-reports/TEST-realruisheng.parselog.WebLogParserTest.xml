@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="realruisheng.parselog.WebLogParserTest" time="0.211" tests="12" errors="0" skipped="0" failures="0">
+<testsuite name="realruisheng.parselog.WebLogParserTest" time="0.244" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/opt/software/jdk/jre/lib/amd64"/>
@@ -30,7 +30,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="4.4.0-109-generic"/>
+    <property name="os.version" value="4.4.0-119-generic"/>
     <property name="user.home" value="/home/sheng"/>
     <property name="user.timezone" value="Asia/Shanghai"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
@@ -59,16 +59,16 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testParse" classname="realruisheng.parselog.WebLogParserTest" time="0.028"/>
-  <testcase name="testIsValid" classname="realruisheng.parselog.WebLogParserTest" time="0"/>
-  <testcase name="testParseRemoteAddr" classname="realruisheng.parselog.WebLogParserTest" time="0"/>
+  <testcase name="testParseRemoteAddr" classname="realruisheng.parselog.WebLogParserTest" time="0.005"/>
   <testcase name="testParseRemoteUser" classname="realruisheng.parselog.WebLogParserTest" time="0"/>
-  <testcase name="testParseTimeLocal" classname="realruisheng.parselog.WebLogParserTest" time="0"/>
+  <testcase name="testParseTimeLocal" classname="realruisheng.parselog.WebLogParserTest" time="0.016"/>
   <testcase name="testParseRequest" classname="realruisheng.parselog.WebLogParserTest" time="0"/>
-  <testcase name="testParseStatus" classname="realruisheng.parselog.WebLogParserTest" time="0"/>
+  <testcase name="testParseStatus" classname="realruisheng.parselog.WebLogParserTest" time="0.001"/>
   <testcase name="testParseBodyBytesSent" classname="realruisheng.parselog.WebLogParserTest" time="0"/>
   <testcase name="testParseHttpReferer" classname="realruisheng.parselog.WebLogParserTest" time="0"/>
-  <testcase name="testParseHttpUserAgent" classname="realruisheng.parselog.WebLogParserTest" time="0"/>
+  <testcase name="testParseHttpUserAgent" classname="realruisheng.parselog.WebLogParserTest" time="0.001"/>
   <testcase name="testGetCharacterPosttion" classname="realruisheng.parselog.WebLogParserTest" time="0"/>
-  <testcase name="testReadFile" classname="realruisheng.parselog.WebLogParserTest" time="0.183"/>
+  <testcase name="testReadFile" classname="realruisheng.parselog.WebLogParserTest" time="0.219"/>
+  <testcase name="testParse" classname="realruisheng.parselog.WebLogParserTest" time="0.002"/>
+  <testcase name="testIsValid" classname="realruisheng.parselog.WebLogParserTest" time="0"/>
 </testsuite>
