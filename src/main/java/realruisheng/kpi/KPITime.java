@@ -52,7 +52,7 @@ public class KPITime extends Configured implements Tool {
                 Date date = webLog.getTimeLocal();
                 SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH");
                 String dateString = simpleDateFormat.format(date);
-                time.set(dateString);
+                time.set(dateString+":00:00");
                 context.write(time,one);
             }
         }
