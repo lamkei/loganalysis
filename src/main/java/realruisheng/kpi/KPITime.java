@@ -43,7 +43,7 @@ public class KPITime extends Configured implements Tool {
             webLogParser = new WebLogParser();
             webLog = new WebLog();
         }
-
+/*
         @Override
         protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
             String line = value.toString();
@@ -56,7 +56,19 @@ public class KPITime extends Configured implements Tool {
                 context.write(time,one);
             }
         }
-
+*/
+        @Override
+        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+            String line = value.toString();
+            webLog = webLogParser.parse(line);
+            if (webLog != null && webLog.isValid()) {
+                Date date = webLog.getTimeLocal();
+                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH");
+                String dateString = simpleDateFormat.format(date);
+                time.set(dateString+":00:00");
+                context.write(time,one);
+            }
+        }
         @Override
         protected void cleanup(Context context) throws IOException, InterruptedException {
             webLogParser = null;

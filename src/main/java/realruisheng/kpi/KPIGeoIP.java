@@ -5,6 +5,7 @@ import com.maxmind.geoip2.exception.GeoIp2Exception;
 import com.maxmind.geoip2.model.CityResponse;
 import com.maxmind.geoip2.record.City;
 import com.maxmind.geoip2.record.Country;
+import com.maxmind.geoip2.record.Subdivision;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.FileSystem;
@@ -66,7 +67,8 @@ public class KPIGeoIP extends Configured implements Tool {
                     response = reader.city(ipAddress);
                     Country country = response.getCountry();
                     City city = response.getCity();
-                    location.set(country.getName()+"\t"+city.getName());
+                    Subdivision subdivision = response.getMostSpecificSubdivision(); //省份的意思
+                    location.set(country.getName()+"\t"+subdivision.getName());
                     context.write(location, one);
                 } catch (GeoIp2Exception e) {
                     e.printStackTrace();

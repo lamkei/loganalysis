@@ -29,7 +29,8 @@ public class KPIIP extends Configured implements Tool {
 
      enum IP{
          IPJumper,     //跳出数，表示只出现一次的IP的数量
-         IPNum          //IP数量，表示来访IP的数量（去重）
+         IPNum,          //IP数量，表示来访IP的数量（去重）
+         IPInterviewNum
      }
 
     static class KPIIPMapper extends Mapper<LongWritable, Text, Text, LongWritable> {
@@ -70,6 +71,7 @@ public class KPIIP extends Configured implements Tool {
             long sum = 0;
             for (LongWritable value : values) {
                 sum += value.get();
+                context.getCounter(IP.IPInterviewNum).increment(1);
             }
             if(sum==1){                //该IP只访问一次
                 context.getCounter(IP.IPJumper).increment(1);
@@ -82,8 +84,10 @@ public class KPIIP extends Configured implements Tool {
         protected void cleanup(Context context) throws IOException, InterruptedException {
             long oneTimeIP = context.getCounter(IP.IPJumper).getValue();
             long sumIP = context.getCounter(IP.IPNum).getValue();
+            long interviewNum = context.getCounter(TaskCounter.MAP_INPUT_RECORDS).getValue();
             context.write(new Text("IPJumper"),new LongWritable(oneTimeIP));
             context.write(new Text("IPNum"),new LongWritable(sumIP));
+            context.write(new Text("interviewNum"),new LongWritable(interviewNum));
         }
     }
 

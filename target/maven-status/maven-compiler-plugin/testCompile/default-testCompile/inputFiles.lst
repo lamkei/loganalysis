@@ -1,8 +1,8 @@
 /home/sheng/IdeaProjects/hadoop/loganalysis/src/test/java/realruisheng/parselog/WebLogParserTest.java
 /home/sheng/IdeaProjects/hadoop/loganalysis/src/test/java/realruisheng/GeoIPTest.java
-/home/sheng/IdeaProjects/hadoop/loganalysis/src/test/java/realruisheng/Test.java
 /home/sheng/IdeaProjects/hadoop/loganalysis/src/test/java/realruisheng/ReadFiles.java
+/home/sheng/IdeaProjects/hadoop/loganalysis/src/test/java/realruisheng/AnalysisTest.java
 /home/sheng/IdeaProjects/hadoop/loganalysis/src/test/java/realruisheng/GooglePlayTest.java
 /home/sheng/IdeaProjects/hadoop/loganalysis/src/test/java/realruisheng/URLAnalysisTest.java
 /home/sheng/IdeaProjects/hadoop/loganalysis/src/test/java/realruisheng/URLEncoderDecoder.java
-/home/sheng/IdeaProjects/hadoop/loganalysis/src/test/java/realruisheng/PagesXmlTest.java
+/home/sheng/IdeaProjects/hadoop/loganalysis/src/test/java/realruisheng/GoogleplayScrapy.java

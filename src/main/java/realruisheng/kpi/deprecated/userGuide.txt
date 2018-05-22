@@ -1,0 +1,13 @@
+KPIBrowser：    记录用户客户端不同浏览器的访问量
+KPIGeoIP  ：    将IP转化为 国家+"\t"+省份
+KPIGooglePlay： 将Google Play的URL上各个参数以及对应的值提取出来，统计每种参数下各种值的数量，
+                并根据参数名字输出到不同的文件
+KPIGooglePlayAmazonNum：统计GooglePlay 与 Amazon 的数量
+KPIIP:          求跳出数、IP数量和访问总次数
+KPIJob：         运行项目工程的入口
+KPIPageIP:      页面IP访问量
+KPIPlatForm:    客户端的平台（PC端或手机端）
+KPIStatus:      状态码
+KPITime:        每小时的PV访问量
+SumReducer：     Reduce类，Map传入的是值为"LongWritable(1)"的键值对,实现按键求和
+

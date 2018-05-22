@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * 测试Google Play 的参数解析情况
  * Created by sheng on 18-4-19.
  */
 public class GooglePlayTest {
